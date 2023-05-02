@@ -1,14 +1,19 @@
 import discord
 import asyncio
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+discord_token = os.getenv('DISCORD_TOKEN')
+madd_id = os.getenv('MADD_ID')
+my_id = os.getenv('MY_ID')
+cabe_id = os.getenv('CABE_ID')
 
 intents = discord.Intents.default()
 intents.message_content = True
 
 client = discord.Client(intents=intents)
 # Replace 'target_member_id' with the ID of the member you want to respond to
-target_member_id = 668657392908632074
-my_id = 225356670027431936
-cabe_id = 676990484123615243
 
 @client.event
 async def on_message(message):
@@ -18,7 +23,7 @@ async def on_message(message):
         response = 'What an ethangamer!'
         await message.channel.send(response)
 
-    if message.author.id == target_member_id or my_id:
+    if message.author.id == madd_id or my_id:
         if message.author == client.user:
             # Ignore messages sent by the bot itself
             return
@@ -29,4 +34,4 @@ async def on_message(message):
             response = f'<@{sender_id}> NO'
             await message.channel.send(response)
 
-client.run('MTEwMjc2MjU1ODc3NzIwODg4Mw.GP_DdY.ZZ6RltKUufyzoKhIm1LAiH9l1U_gKaXUydg3Vc')
+client.run('discord_token')
