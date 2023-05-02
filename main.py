@@ -29,7 +29,7 @@ async def on_message(message):
             return
 
     if 'mauzymice' in message.content.lower() or 'mauzy' in message.content.lower() or 'boykisser' in message.content.lower():
-            # Get the sender's user ID and tag them in the response message
+            # Get the sender's user ID and tag them in the response message with NO
             sender_id = message.author.id
             response = f'<@{sender_id}> NO'
             await message.channel.send(response)
